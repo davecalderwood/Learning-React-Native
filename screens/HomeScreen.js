@@ -15,63 +15,22 @@ import { MonoText } from '../components/StyledText';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      {/* <Text>Hello World!</Text>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={
-              __DEV__
-                ? require('../assets/images/robot-dev.png')
-                : require('../assets/images/robot-prod.png')
-            }
-            style={styles.welcomeImage}
-          />
-        </View>
-
-        <View style={styles.getStartedContainer}>
-          <DevelopmentModeNotice />
-
-          <Text style={styles.getStartedText}>Get started by opening</Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-            <MonoText>screens/HomeScreen.js</MonoText>
-          </View>
-
-          <Text style={styles.getStartedText}>
-            Change this text and your app will automatically reload.
-          </Text>
-        </View>
-
-        <View style={styles.helpContainer}>
-          <TouchableOpacity onPress={handleHelpPress} style={styles.helpLink}>
-            <Text style={styles.helpLinkText}>
-              Help, it didn’t automatically reload!
-            </Text>
-          </TouchableOpacity>
-        </View>
-      </ScrollView>
-
-      <View style={styles.tabBarInfoContainer}>
-        <Text style={styles.tabBarInfoText}>
-          This is a tab bar. You can edit it in:
-        </Text>
-
-        <View
-          style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-          <MonoText style={styles.codeHighlightText}>
-            navigation/MainTabNavigator.js
-          </MonoText>
-        </View>
-      </View> */}
-
       <ScrollView
         contentContainerStyle={styles.contentContainer}>
           <Image 
             source={require('../assets/images/linkedin.png')} 
             style={styles.homeImage} />
+          
+          <View>
+            <Text style={styles.header}>Work Experience</Text>
+            <Text style={styles.job}>Yona-Brixtel</Text>
+            <Text style={styles.jobDesc}>I am currently a developer at Yona-Brixtel in Virginia. Here I have learned Angular 7 and I am working on front end as well as API integration for our CEA project for the FAA. UI and API work. We are currently building this website from scratch</Text>
+          </View>
+
+          <View>
+            <Text style={styles.job}>Helio Training</Text>
+            <Text  style={styles.jobDesc}>Larry H Miller Sports Entertainment Group – They wanted a mobile application for the Utah Stars, similar to the one that is already existing for the Utah Jazz. We built this app from scratch using React-Native.</Text>
+          </View>
 
       </ScrollView>
     </View>
@@ -82,133 +41,38 @@ HomeScreen.navigationOptions = {
   header: null,
 };
 
-// function DevelopmentModeNotice() {
-//   if (__DEV__) {
-//     const learnMoreButton = (
-//       <Text onPress={handleLearnMorePress} style={styles.helpLinkText}>
-//         Learn more
-//       </Text>
-//     );
-
-//     return (
-//       <Text style={styles.developmentModeText}>
-//         Development mode is enabled: your app will be slower but you can use
-//         useful development tools. {learnMoreButton}
-//       </Text>
-//     );
-//   } else {
-//     return (
-//       <Text style={styles.developmentModeText}>
-//         You are not in development mode: your app will run at full speed.
-//       </Text>
-//     );
-//   }
-// }
-
-// function handleLearnMorePress() {
-//   WebBrowser.openBrowserAsync(
-//     'https://docs.expo.io/versions/latest/workflow/development-mode/'
-//   );
-// }
-
-// function handleHelpPress() {
-//   WebBrowser.openBrowserAsync(
-//     'https://docs.expo.io/versions/latest/workflow/up-and-running/#cant-see-your-changes'
-//   );
-// }
-
 const styles = StyleSheet.create({
+  contentContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   homeImage: {
     height: 175,
     width: 175,
-    borderRadius: 25
+    borderRadius: 25,
+    marginTop: 35
   },
   container: {
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#F6FCFF'
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
+  header: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
     textAlign: 'center',
+    paddingTop: 30
   },
-  contentContainer: {
-    paddingTop: 30,
+  job: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: "center",
+    paddingTop: 15
   },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  jobDesc: {
+    fontSize: 14
+  }
 });
